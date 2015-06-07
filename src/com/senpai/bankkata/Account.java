@@ -3,9 +3,11 @@ package com.senpai.bankkata;
 public class Account {
 
     private TransactionRepository transactionRepository;
+    private StatementPrinter statementPrinter;
 
-    public Account(TransactionRepository transactionRepository) {
+    public Account(TransactionRepository transactionRepository, StatementPrinter statementPrinter) {
         this.transactionRepository = transactionRepository;
+        this.statementPrinter = statementPrinter;
     }
 
     public void deposit(int amount) {
@@ -17,5 +19,6 @@ public class Account {
     }
 
     public void printStatement() {
+        statementPrinter.print(transactionRepository.allTransactions());
     }
 }
