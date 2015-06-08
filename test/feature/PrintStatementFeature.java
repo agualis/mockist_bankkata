@@ -1,9 +1,6 @@
 package feature;
 
-import com.senpai.bankkata.Account;
-import com.senpai.bankkata.Console;
-import com.senpai.bankkata.StatementPrinter;
-import com.senpai.bankkata.TransactionRepository;
+import com.senpai.bankkata.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,6 +15,7 @@ import static org.mockito.Mockito.verify;
 public class PrintStatementFeature {
 
     @Mock Console console;
+    @Mock Clock clock;
 
     private Account account;
     private TransactionRepository transactionRepository;
@@ -25,7 +23,8 @@ public class PrintStatementFeature {
 
     @Before
     public void init(){
-        transactionRepository = new TransactionRepository();
+        clock = new Clock();
+        transactionRepository = new TransactionRepository(clock);
         statementPrinter = new StatementPrinter();
         account = new Account(transactionRepository, statementPrinter);
     }
