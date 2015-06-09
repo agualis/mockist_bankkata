@@ -1,9 +1,6 @@
 package com.senpai.bankkata;
 
-import com.sun.org.apache.bcel.internal.generic.RETURN;
-
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static java.util.Collections.unmodifiableList;
@@ -20,7 +17,6 @@ public class TransactionRepository {
     public void addDeposit(int amount) {
         transactions.add(new Transaction(clock.todayAsString(), amount));
     }
-
 
     public void addWithdrawal(int amount) {
         transactions.add(new Transaction(clock.todayAsString(), -amount));

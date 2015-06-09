@@ -3,6 +3,7 @@ package com.senpai.bankkata;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InOrder;
 import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -49,11 +50,11 @@ public class StatementPrinterShould {
 
         statetementPrinter.print(transactions);
 
-        inOrder(console);
-        verify(console).printLine(STATEMENT_HEADER);
-        verify(console).printLine("01/04/2014 | 1000 | 1000");
-        verify(console).printLine("02/04/2014 | -100 | 900");
-        verify(console).printLine("10/04/2014 | 500 | 1400");
+        InOrder inOrder = inOrder(console);
+        inOrder.verify(console).printLine(STATEMENT_HEADER);
+        inOrder.verify(console).printLine("01/04/2014 | 1000 | 1000");
+        inOrder.verify(console).printLine("02/04/2014 | -100 | 900");
+        inOrder.verify(console).printLine("10/04/2014 | 500 | 1400");
     }
 
 }

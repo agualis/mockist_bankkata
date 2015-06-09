@@ -8,6 +8,7 @@ import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.verify;
 
@@ -23,7 +24,6 @@ public class PrintStatementFeature {
 
     @Before
     public void init(){
-        clock = new Clock();
         transactionRepository = new TransactionRepository(clock);
         statementPrinter = new StatementPrinter(console);
         account = new Account(transactionRepository, statementPrinter);
