@@ -52,9 +52,9 @@ public class StatementPrinterShould {
 
         InOrder inOrder = inOrder(console);
         inOrder.verify(console).printLine(STATEMENT_HEADER);
-        inOrder.verify(console).printLine("01/04/2014 | 1000 | 1000");
-        inOrder.verify(console).printLine("02/04/2014 | -100 | 900");
         inOrder.verify(console).printLine("10/04/2014 | 500 | 1400");
+        inOrder.verify(console).printLine("02/04/2014 | -100 | 900");
+        inOrder.verify(console).printLine("01/04/2014 | 1000 | 1000");
     }
 
 }

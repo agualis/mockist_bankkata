@@ -49,9 +49,9 @@ public class Transaction implements Comparable<Transaction>{
         final LocalDate date1 = dtf.parseLocalDate(this.date);
         final LocalDate date2 = dtf.parseLocalDate(t2.date);
         if (date1.isBefore(date2)) {
-            return -1;
+            return 1;
         }
-        return 1;
+        return -1;
     }
 
 }

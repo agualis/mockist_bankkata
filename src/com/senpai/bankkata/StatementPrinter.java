@@ -24,7 +24,7 @@ public class StatementPrinter {
         Collections.sort(copyOfTransactions);
         int runningBalance = 0;
         for (Transaction transaction: copyOfTransactions) {
-            runningBalance+= transaction.amount;
+            runningBalance+= transaction.amount();
             console.printLine(statementLine(transaction, runningBalance));
         }
     }
