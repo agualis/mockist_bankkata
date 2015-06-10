@@ -9,7 +9,7 @@ import static com.senpai.bankkata.Clock.DATE_FORMAT;
 
 public class Transaction implements Comparable<Transaction>{
     private String date;
-    protected int amount;
+    private int amount;
 
     public Transaction(String date, int amount) {
         this.date = date;
