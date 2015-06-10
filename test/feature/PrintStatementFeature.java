@@ -8,9 +8,9 @@ import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import static org.mockito.BDDMockito.given;
+import static com.senpai.bankkata.StatementPrinter.STATEMENT_HEADER;
 import static org.mockito.Mockito.inOrder;
-import static org.mockito.Mockito.verify;
+
 
 @RunWith(MockitoJUnitRunner.class)
 public class PrintStatementFeature {
@@ -39,7 +39,7 @@ public class PrintStatementFeature {
         account.printStatement();
 
         InOrder inOrder = inOrder(console);
-        inOrder.verify(console).printLine("DATE | AMOUNT | BALANCE");
+        inOrder.verify(console).printLine(STATEMENT_HEADER);
         inOrder.verify(console).printLine("10/04/2014 | 500 | 1400");
         inOrder.verify(console).printLine("02/04/2014 | -100 | 900");
         inOrder.verify(console).printLine("01/04/2014 | 1000 | 1000");

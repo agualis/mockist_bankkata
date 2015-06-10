@@ -4,17 +4,14 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InOrder;
-import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static com.senpai.bankkata.StatementPrinter.STATEMENT_HEADER;
 import static java.util.Collections.EMPTY_LIST;
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.verify;
 
@@ -52,9 +49,9 @@ public class StatementPrinterShould {
 
         InOrder inOrder = inOrder(console);
         inOrder.verify(console).printLine(STATEMENT_HEADER);
-        inOrder.verify(console).printLine("01/04/2014 | 1000 | 1000");
-        inOrder.verify(console).printLine("02/04/2014 | -100 | 900");
         inOrder.verify(console).printLine("10/04/2014 | 500 | 1400");
+        inOrder.verify(console).printLine("02/04/2014 | -100 | 900");
+        inOrder.verify(console).printLine("01/04/2014 | 1000 | 1000");
     }
 
 }
